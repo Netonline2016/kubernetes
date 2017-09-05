@@ -1,2 +1,2 @@
-FROM gcr.io/google_containers/kube-controller-manager-amd64:1.7.5
+FROM gcr.io/google_containers/kube-controller-manager-amd64:v1.7.5
 MAINTAINER Netonline "xxx@gmail.com"
