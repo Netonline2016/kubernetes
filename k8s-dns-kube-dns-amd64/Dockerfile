@@ -1,2 +1,2 @@
-FROM gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.5
+FROM k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.7
 MAINTAINER Netonline "xxx@gmail.com"
