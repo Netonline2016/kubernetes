@@ -1,2 +1,2 @@
-FROM gcr.io/google_containers/nginx-ingress-controller:0.9.0-beta.15
+FROM quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.9.0
 MAINTAINER Netonline "xxx@gmail.com"
