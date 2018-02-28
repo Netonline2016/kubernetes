@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-svc-ingress
+spec:
+  rules:
+  - host: nginx-svc.me
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-svc
+          servicePort: 80
