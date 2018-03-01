@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tls
+spec:
+  tls:
+  - hosts:
+    - nginx01-svc-tls.me
+    - nginx02-svc-tls.me
+    secretName: secret-ingress
+  rules:
+  - host: nginx01-svc-tls.me
+    http:
+      paths:
+      - backend:
+          serviceName: nginx01-svc-tls
+          servicePort: 443
+  - host: nginx02-svc-tls.me
+    http:
+      paths:
+      - backend:
+          serviceName: nginx02-svc-tls
+          servicePort: 443
