@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns
+  namespace: kube-system
+  labels:
+      addonmanager.kubernetes.io/mode: EnsureExists
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+            pods insecure
+            upstream 114.114.114.114 223.5.5.5
+            fallthrough in-addr.arpa ip6.arpa
+        }
+        prometheus :9153
+        proxy . 114.114.114.114 223.5.5.5
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+    out.kubernetes:53 {
+        errors
+        cache 30
+        proxy . 172.30.200.15
+    }
