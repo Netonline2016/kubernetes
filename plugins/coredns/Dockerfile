@@ -1,2 +1,2 @@
-FROM k8s.gcr.io/coredns:1.2.4
+FROM k8s.gcr.io/coredns:1.2.6
 MAINTAINER Netonline "xxx@gmail.com"
