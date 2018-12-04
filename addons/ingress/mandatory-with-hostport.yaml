@@ -182,7 +182,8 @@ subjects:
 
 ---
 apiVersion: extensions/v1beta1
-#kind: Deployment
+# 以DaemonSet的形式下发资源
+# kind: Deployment
 kind: DaemonSet
 metadata:
   name: nginx-ingress-controller
@@ -191,7 +192,7 @@ metadata:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
 spec:
-  #replicas: 1
+  # replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: ingress-nginx
@@ -236,9 +237,11 @@ spec:
           ports:
             - name: http
               containerPort: 80
+              # 直接暴露端口于宿主机
               hostPort: 80
             - name: https
               containerPort: 443
+              # 直接暴露端口于宿主机
               hostPort: 443
           livenessProbe:
             failureThreshold: 3
