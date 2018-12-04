@@ -267,11 +267,19 @@ spec:
   type: NodePort
   ports:
   - name: http
+    # 默认自动分配, 特定端口从nodePort range中选择
+    # nodePort: 30080
+    # svc监听端口
     port: 80
+    # 后端pod端口
     targetPort: 80
     protocol: TCP
   - name: https
+    # 默认自动分配, 特定端口从nodePort range中选择
+    # nodePort: 30443
+    # svc监听端口
     port: 443
+    # 后端pod端口
     targetPort: 443
     protocol: TCP
   selector:
